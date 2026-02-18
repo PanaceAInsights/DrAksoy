@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dr Yagiz Alp Aksoy — Clinician · Researcher · Innovator</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg-primary:#0B0F14;--bg-secondary:#111720;--bg-card:#161D28;--bg-card-hover:#1C2535;--bg-elevated:#1E2736;--border:rgba(196,167,118,0.12);--border-hover:rgba(196,167,118,0.25);--gold:#C4A776;--gold-bright:#D4B986;--gold-dim:#9A8255;--text-primary:#E8E4DE;--text-secondary:#9AA0AC;--text-muted:#636B78;--success:#5B9A6B;--serif:'Playfair Display',Georgia,serif;--sans:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;--mono:'JetBrains Mono',monospace}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:var(--sans);background:var(--bg-primary);color:var(--text-primary);line-height:1.65;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:9999}
+a{color:var(--gold);text-decoration:none;transition:color .3s}a:hover{color:var(--gold-bright)}
+::selection{background:var(--gold);color:var(--bg-primary)}
+.container{max-width:1080px;margin:0 auto;padding:0 32px}
+section{padding:80px 0;position:relative}
+.reveal{opacity:1;transform:translateY(0);transition:opacity .8s cubic-bezier(.25,.46,.45,.94),transform .8s cubic-bezier(.25,.46,.45,.94)}
+.js-loaded .reveal{opacity:0;transform:translateY(30px)}
+.js-loaded .reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:.1s}.reveal-delay-2{transition-delay:.2s}.reveal-delay-3{transition-delay:.3s}
+
+/* Nav */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 0;transition:all .4s;background:transparent}
+nav.scrolled{background:rgba(11,15,20,.92);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:12px 0}
+nav .container{display:flex;justify-content:space-between;align-items:center}
+.nav-name{font-family:var(--serif);font-size:18px;font-weight:600;color:var(--text-primary);display:flex;align-items:baseline;gap:8px}
+.nav-name .gold{color:var(--gold)}
+.nav-creds{font-family:var(--sans);font-size:11px;font-weight:400;color:var(--text-muted);letter-spacing:.5px}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{color:var(--text-secondary);font-size:13px;font-weight:500;letter-spacing:.5px;text-transform:uppercase;transition:color .3s;position:relative}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--gold);transition:width .3s}
+.nav-links a:hover{color:var(--gold)}.nav-links a:hover::after{width:100%}
+
+/* Hero */
+.hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding-top:80px}
+.hero::before{content:'';position:absolute;top:-20%;right:-15%;width:600px;height:600px;background:radial-gradient(ellipse,rgba(196,167,118,.06)0%,transparent 70%);pointer-events:none}
+.hero::after{content:'';position:absolute;bottom:-10%;left:-10%;width:500px;height:500px;background:radial-gradient(ellipse,rgba(91,143,185,.04)0%,transparent 70%);pointer-events:none}
+.hero-content{position:relative;z-index:1}
+.hero-eyebrow{font-family:var(--mono);font-size:12px;color:var(--gold);letter-spacing:3px;text-transform:uppercase;margin-bottom:20px;opacity:0;animation:fadeUp .8s .3s forwards}
+.hero h1{font-family:var(--serif);font-size:clamp(52px,8vw,88px);font-weight:700;line-height:1.02;margin-bottom:8px;opacity:0;animation:fadeUp .8s .5s forwards;letter-spacing:-1px}
+.hero-tagline{font-family:var(--serif);font-size:clamp(22px,3vw,30px);color:var(--text-secondary);font-weight:400;font-style:italic;margin-bottom:28px;line-height:1.4;opacity:0;animation:fadeUp .8s .65s forwards}
+.hero-tagline .accent{color:var(--gold)}
+.hero-subtitle{font-size:17px;color:var(--text-secondary);max-width:640px;line-height:1.7;margin-bottom:32px;opacity:0;animation:fadeUp .8s .8s forwards}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
+/* Logos */
+.affiliation-bar{display:flex;align-items:center;gap:28px;margin-bottom:36px;opacity:0;animation:fadeUp .8s .9s forwards}
+.logo-card{display:flex;align-items:center;padding:12px 20px;background:#fff;border-radius:8px;transition:all .3s}
+.logo-card:hover{box-shadow:0 4px 24px rgba(0,0,0,.15);transform:translateY(-1px)}
+.logo-card img{height:52px;width:auto;max-width:280px;object-fit:contain}
+.affiliation-divider{width:1px;height:40px;background:var(--border)}
+
+/* Grouped Roles */
+.roles-grouped{display:flex;flex-wrap:wrap;gap:20px;margin-bottom:40px;opacity:0;animation:fadeUp .8s 1s forwards}
+.role-group{display:flex;flex-direction:column;gap:8px}
+.role-group-label{font-family:var(--mono);font-size:9px;color:var(--gold-dim);letter-spacing:2.5px;text-transform:uppercase;padding-left:2px}
+.role-group-items{display:flex;flex-wrap:wrap;gap:8px}
+.role-tag{display:inline-flex;align-items:center;padding:6px 14px;background:var(--bg-card);border:1px solid var(--border);border-radius:100px;font-size:12.5px;color:var(--text-secondary);transition:all .3s}
+.role-tag:hover{border-color:var(--border-hover);color:var(--text-primary);background:var(--bg-card-hover)}
+
+/* CTA */
+.hero-cta{display:flex;gap:16px;opacity:0;animation:fadeUp .8s 1.15s forwards}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 28px;border-radius:6px;font-size:13px;font-weight:600;letter-spacing:.5px;transition:all .3s;cursor:pointer;border:none}
+.btn-primary{background:var(--gold);color:var(--bg-primary)}
+.btn-primary:hover{background:var(--gold-bright);color:var(--bg-primary);transform:translateY(-1px);box-shadow:0 8px 30px rgba(196,167,118,.2)}
+.btn-outline{background:transparent;border:1px solid var(--border);color:var(--text-secondary)}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold)}
+
+/* Scroll hint */
+.scroll-hint{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;opacity:0;animation:fadeUp .8s 1.5s forwards}
+.scroll-hint span{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted)}
+.scroll-line{width:1px;height:40px;background:linear-gradient(to bottom,var(--gold),transparent);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:.3;transform:scaleY(.6)}50%{opacity:1;transform:scaleY(1)}}
+
+/* Section headers */
+.section-header{margin-bottom:48px}
+.section-label{font-family:var(--mono);font-size:11px;color:var(--gold);letter-spacing:3px;text-transform:uppercase;margin-bottom:12px}
+.section-title{font-family:var(--serif);font-size:clamp(28px,4vw,40px);font-weight:600;line-height:1.2;margin-bottom:16px}
+.section-desc{font-size:16px;color:var(--text-secondary);max-width:600px;line-height:1.7}
+
+/* Stats */
+.stats-section{padding:60px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--bg-secondary)}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:32px;text-align:center}
+.stat-item{position:relative}.stat-item::after{content:'';position:absolute;right:0;top:10%;height:80%;width:1px;background:var(--border)}.stat-item:last-child::after{display:none}
+.stat-number{font-family:var(--serif);font-size:44px;font-weight:700;color:var(--gold);line-height:1;margin-bottom:8px}
+.stat-label{font-size:12px;color:var(--text-muted);text-transform:uppercase;letter-spacing:1.5px;font-weight:500}
+
+/* Pipeline */
+.pipeline-section{background:var(--bg-secondary)}
+.pipeline-visual{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin:48px 0;position:relative}
+.pipeline-visual::before{content:'';position:absolute;top:36px;left:12%;right:12%;height:2px;background:linear-gradient(90deg,var(--gold-dim),var(--gold),var(--gold),var(--gold-dim));opacity:.3}
+.pipeline-step{text-align:center;position:relative;z-index:1}
+.step-circle{width:72px;height:72px;border-radius:50%;background:var(--bg-card);border:2px solid var(--gold-dim);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:28px;transition:all .4s}
+.pipeline-step:hover .step-circle{border-color:var(--gold);box-shadow:0 0 30px rgba(196,167,118,.15);transform:scale(1.08)}
+.step-title{font-weight:600;font-size:14px;color:var(--text-primary);margin-bottom:4px}
+.step-desc{font-size:12px;color:var(--text-muted);line-height:1.5;max-width:160px;margin:0 auto}
+
+/* Track record cards */
+.track-card{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:32px;margin-bottom:20px;display:grid;grid-template-columns:1fr auto;gap:24px;align-items:start;transition:all .4s}
+.track-card:hover{border-color:var(--border-hover);background:var(--bg-card-hover);transform:translateY(-2px);box-shadow:0 12px 40px rgba(0,0,0,.3)}
+.track-journal{font-family:var(--mono);font-size:11px;color:var(--gold);letter-spacing:1px;text-transform:uppercase;margin-bottom:8px}
+.track-title{font-family:var(--serif);font-size:19px;font-weight:500;line-height:1.4;margin-bottom:12px}
+.track-meta{display:flex;flex-wrap:wrap;gap:16px;font-size:13px;color:var(--text-secondary)}
+.track-meta-item{display:flex;align-items:center;gap:5px}
+.highlight{color:var(--success);font-weight:600}
+.track-tool{display:flex;flex-direction:column;align-items:center;gap:10px;min-width:160px}
+.tool-preview{width:140px;height:90px;background:var(--bg-elevated);border:1px solid var(--border);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:32px;transition:all .3s}
+.track-card:hover .tool-preview{border-color:var(--gold-dim)}
+.tool-link{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;color:var(--gold);letter-spacing:.5px;padding:6px 14px;border:1px solid var(--gold-dim);border-radius:100px;transition:all .3s}
+.tool-link:hover{background:var(--gold);color:var(--bg-primary);border-color:var(--gold)}
+
+/* Tool cards */
+.tools-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.tool-card{background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:28px 24px;transition:all .4s;text-align:center;position:relative;overflow:hidden;display:block;color:var(--text-primary)}
+.tool-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:0;transition:opacity .4s}
+.tool-card:hover{border-color:var(--border-hover);transform:translateY(-4px);box-shadow:0 16px 48px rgba(0,0,0,.3);color:var(--text-primary)}
+.tool-card:hover::before{opacity:1}
+.tool-card-icon{font-size:32px;margin-bottom:14px}
+.tool-card-name{font-family:var(--serif);font-size:17px;font-weight:600;margin-bottom:6px}
+.tool-card-desc{font-size:13px;color:var(--text-muted);line-height:1.5;margin-bottom:16px}
+
+/* Grants */
+.grant-card{display:flex;gap:28px;padding:32px;background:var(--bg-card);border:1px solid var(--border);border-radius:12px;margin-bottom:16px;align-items:start;transition:all .3s}
+.grant-card:hover{border-color:var(--border-hover)}
+.grant-amount{font-family:var(--serif);font-size:32px;font-weight:700;color:var(--gold);white-space:nowrap;line-height:1;min-width:160px}
+.grant-amount .currency{font-size:18px;color:var(--gold-dim)}
+.grant-name{font-family:var(--serif);font-size:18px;font-weight:600;margin-bottom:4px}
+.grant-funder{font-size:13px;color:var(--gold-dim);font-weight:500;margin-bottom:8px}
+.grant-desc{font-size:13px;color:var(--text-secondary);line-height:1.6}
+
+/* Publications */
+.pub-list{list-style:none}
+.pub-item{padding:16px 0;border-bottom:1px solid var(--border);display:grid;grid-template-columns:48px 1fr auto;gap:16px;align-items:start;transition:all .3s}
+.pub-item:hover{padding-left:8px}
+.pub-year{font-family:var(--mono);font-size:12px;color:var(--gold-dim);padding-top:3px}
+.pub-text{font-size:13.5px;color:var(--text-secondary);line-height:1.55}
+.pub-text strong{color:var(--text-primary);font-weight:600}
+.pub-text em{color:var(--gold-dim);font-style:italic}
+.pub-if{font-family:var(--mono);font-size:11px;color:var(--text-muted);white-space:nowrap;padding-top:3px}
+.pub-type{font-size:9px;padding:2px 6px;border-radius:3px;background:rgba(196,167,118,.1);color:var(--gold);font-weight:600;letter-spacing:.5px;text-transform:uppercase;margin-left:6px}
+
+/* News */
+.news-card{display:flex;gap:32px;padding:36px;background:linear-gradient(135deg,var(--bg-card),var(--bg-elevated));border:1px solid var(--border);border-radius:12px;align-items:center;transition:all .4s;margin-bottom:16px}
+.news-card:hover{border-color:var(--gold-dim);transform:translateY(-2px);box-shadow:0 12px 40px rgba(0,0,0,.3)}
+.news-icon{font-size:48px;flex-shrink:0}
+.news-tag{font-family:var(--mono);font-size:10px;color:var(--gold);letter-spacing:2px;text-transform:uppercase;margin-bottom:8px}
+.news-title{font-family:var(--serif);font-size:18px;font-weight:600;margin-bottom:8px;line-height:1.35}
+.news-excerpt{font-size:13px;color:var(--text-secondary);margin-bottom:14px;line-height:1.6}
+
+/* Contact */
+.contact-section{text-align:center;padding:100px 0}
+.contact-grid{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-top:32px}
+.contact-item{display:flex;align-items:center;gap:10px;padding:12px 24px;background:var(--bg-card);border:1px solid var(--border);border-radius:8px;font-size:14px;color:var(--text-secondary);transition:all .3s}
+.contact-item:hover{border-color:var(--gold-dim);color:var(--text-primary)}
+.contact-icon{font-size:18px}
+footer{padding:32px 0;border-top:1px solid var(--border);text-align:center}
+footer p{font-size:12px;color:var(--text-muted)}
+footer .footer-links{margin-top:12px;display:flex;justify-content:center;gap:24px;flex-wrap:wrap}
+footer .footer-links a{font-size:12px;color:var(--text-muted);transition:color .3s}
+footer .footer-links a:hover{color:var(--gold)}
+
+@media(max-width:768px){
+.container{padding:0 20px}section{padding:60px 0}.nav-links{display:none}
+.stats-grid{grid-template-columns:repeat(2,1fr);gap:24px}.stat-item::after{display:none}
+.pipeline-visual{grid-template-columns:1fr;gap:24px}.pipeline-visual::before{display:none}
+.track-card{grid-template-columns:1fr}.track-tool{flex-direction:row;min-width:auto}.tool-preview{width:60px;height:44px;font-size:20px}
+.tools-grid{grid-template-columns:1fr}
+.grant-card{flex-direction:column;gap:12px}
+.pub-item{grid-template-columns:1fr;gap:4px}.pub-year,.pub-if{display:none}
+.news-card{flex-direction:column;text-align:center}
+.contact-grid{flex-direction:column;align-items:center}
+.affiliation-bar{gap:12px;flex-wrap:wrap;justify-content:center}.logo-card{padding:8px 14px}.logo-card img{height:40px;max-width:220px}
+.roles-grouped{flex-direction:column;gap:16px}
+}
+</style>
+</head>
+<body>
+
+<nav id="nav"><div class="container">
+  <div class="nav-name">Dr Yagiz <span class="gold">Aksoy</span> <span class="nav-creds">BSc MD PhD JP</span></div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#pipeline">Pipeline</a></li>
+    <li><a href="#work">Published Work</a></li>
+    <li><a href="#tools">AI Tools</a></li>
+    <li><a href="#grants">Grants</a></li>
+    <li><a href="#publications">Publications</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</div></nav>
+
+<section class="hero" id="about"><div class="container"><div class="hero-content">
+  <div class="hero-eyebrow"><span style="display:inline-block;width:32px;height:1px;background:var(--gold);vertical-align:middle;margin-right:12px"></span>◆<span style="display:inline-block;width:32px;height:1px;background:var(--gold);vertical-align:middle;margin-left:12px"></span></div>
+  <h1>Yagiz Aksoy</h1>
+  <p class="hero-tagline">Clinician. Researcher. <span class="accent">Innovator.</span></p>
+  <p class="hero-subtitle">I develop AI-powered clinical decision tools that are peer-reviewed, validated on thousands of patients, and freely accessible to clinicians worldwide. I also help shape the national frameworks for how clinical AI should be governed.</p>
+
+  <div class="affiliation-bar">
+    <a href="https://www.centenary.org.au" target="_blank" class="logo-card"><img src="https://www.centenary.org.au/wp-content/uploads/2023/11/Centenary_Institute_Logo_RGB.png" alt="Centenary Institute"></a>
+    <div class="affiliation-divider"></div>
+    <a href="https://daffodilcentre.org" target="_blank" class="logo-card"><img src="https://daffodilcentre.org/wp-content/uploads/2020/12/CC-DC_lockup-2048x644.png" alt="The Daffodil Centre"></a>
+  </div>
+
+  <div class="roles-grouped">
+    <div class="role-group"><div class="role-group-label">Research</div><div class="role-group-items">
+      <span class="role-tag">Senior Clinical Research Fellow — Biomedical AI Centre, Centenary Institute</span>
+      <span class="role-tag">Senior Research Fellow — Melanoma &amp; Skin Cancer Group, Daffodil Centre, University of Sydney</span>
+    </div></div>
+    <div class="role-group"><div class="role-group-label">Clinical</div><div class="role-group-items">
+      <span class="role-tag">Dermatology Registrar (Unacc.) — Prince of Wales Hospital</span>
+    </div></div>
+    <div class="role-group"><div class="role-group-label">Government</div><div class="role-group-items">
+      <span class="role-tag">Manager, Health Research Intelligence — NSW Ministry of Health</span>
+    </div></div>
+    <div class="role-group"><div class="role-group-label">Ventures</div><div class="role-group-items">
+      <span class="role-tag">Founder — PanaceAI</span>
+      <span class="role-tag">Director / Co-Founder — Eosgene Therapeutics</span>
+    </div></div>
+  </div>
+
+  <div class="hero-cta">
+    <a href="/cdn-cgi/l/email-protection#c1b8a0a6a8bbefa0aab2aeb8e7e2f7f5fab2b8a5afa4b8efa4a5b4efa0b4" class="btn btn-primary">Get in Touch</a>
+    <a href="#work" class="btn btn-outline">See My Work ↓</a>
+  </div>
+</div></div>
+<div class="scroll-hint"><span>Scroll</span><div class="scroll-line"></div></div>
+</section>
+
+<section class="stats-section"><div class="container"><div class="stats-grid">
+  <div class="stat-item reveal"><div class="stat-number" data-target="4" data-prefix=">$" data-suffix="M">>$4M</div><div class="stat-label">Competitive Grants</div></div>
+  <div class="stat-item reveal reveal-delay-1"><div class="stat-number" data-target="20" data-prefix="" data-suffix="+">20+</div><div class="stat-label">Peer-Reviewed Papers</div></div>
+  <div class="stat-item reveal reveal-delay-2"><div class="stat-number" data-target="11" data-prefix="" data-suffix="">11</div><div class="stat-label">h-index</div></div>
+  <div class="stat-item reveal reveal-delay-3"><div class="stat-number" data-target="6000" data-prefix="" data-suffix="+">6,000+</div><div class="stat-label">Patients Validated</div></div>
+</div></div></section>
+
+<section class="pipeline-section" id="pipeline"><div class="container">
+  <div class="section-header reveal"><div class="section-label">My Approach</div><h2 class="section-title">From Clinical Data to<br>Published, Deployed Tool</h2><p class="section-desc">Every collaboration follows the same proven pipeline. You bring the clinical data and domain expertise. I bring the analytics, machine learning, and development capability. Together we produce high-impact publications and tools clinicians can actually use.</p></div>
+  <div class="pipeline-visual">
+    <div class="pipeline-step reveal"><div class="step-circle">📊</div><div class="step-title">Clinical Data</div><div class="step-desc">Your registry, cohort, or trial data — the raw clinical insight</div></div>
+    <div class="pipeline-step reveal reveal-delay-1"><div class="step-circle">⚙️</div><div class="step-title">AI / ML Modelling</div><div class="step-desc">Cox regression, LASSO, elastic net, ensemble methods, SHAP explainability</div></div>
+    <div class="pipeline-step reveal reveal-delay-2"><div class="step-circle">📄</div><div class="step-title">Publication</div><div class="step-desc">Peer-reviewed paper with publication-quality figures and rigorous validation</div></div>
+    <div class="pipeline-step reveal reveal-delay-3"><div class="step-circle">🖥️</div><div class="step-title">Live Clinical Tool</div><div class="step-desc">Interactive, freely available decision-support calculator for clinicians</div></div>
+  </div>
+</div></section>
+
+<section id="work"><div class="container">
+  <div class="section-header reveal"><div class="section-label">Track Record</div><h2 class="section-title">Published &amp; Deployed</h2><p class="section-desc">Each of these projects went from raw data to peer-reviewed publication to a live clinical tool — the full pipeline, delivered.</p></div>
+
+  <div class="track-card reveal"><div class="track-info"><div class="track-journal">Pathology · 2023</div><div class="track-title">A novel prognostic nomogram for predicting survival in diffuse pleural mesothelioma</div><div class="track-meta"><span class="track-meta-item">Aksoy YA et al. (First Author)</span><span class="track-meta-item">📊 369 patients · 30 years of data</span><span class="track-meta-item">🎯 <span class="highlight">AUC 0.75</span></span></div></div><div class="track-tool"><div class="tool-preview">🫁</div><a href="https://panacea.shinyapps.io/Mesothelioma/" target="_blank" class="tool-link">Live Tool →</a></div></div>
+
+  <div class="track-card reveal"><div class="track-info"><div class="track-journal">Histopathology · 2024 · IF 6.62</div><div class="track-title">Novel prognostic nomogram for predicting recurrence-free survival in medullary thyroid carcinoma</div><div class="track-meta"><span class="track-meta-item">Aksoy YA et al. (First Author)</span><span class="track-meta-item">📊 2,032 patients</span><span class="track-meta-item">🎯 <span class="highlight">AUC 0.878</span></span><span class="track-meta-item">25% reduction in unnecessary surgeries</span></div></div><div class="track-tool"><div class="tool-preview">🦋</div><a href="https://panacea.shinyapps.io/MTCx/" target="_blank" class="tool-link">Live Tool →</a></div></div>
+
+  <div class="track-card reveal"><div class="track-info"><div class="track-journal">ANZ Journal of Surgery · 2025</div><div class="track-title">Development of a novel malignant colorectal polyp prognostic nomogram</div><div class="track-meta"><span class="track-meta-item">Zammit &amp; Aksoy YA et al. (Co-First Author)</span><span class="track-meta-item">📊 485 patients</span><span class="track-meta-item">🎯 <span class="highlight">AUC 0.91</span></span><span class="track-meta-item">32% accuracy gain over guidelines</span></div></div><div class="track-tool"><div class="tool-preview">🔬</div><a href="https://malignantpolyp.com/" target="_blank" class="tool-link">Live Tool →</a></div></div>
+</div></section>
+
+<section id="tools" style="background:var(--bg-secondary)"><div class="container">
+  <div class="section-header reveal"><div class="section-label">Clinical AI Platform</div><h2 class="section-title">More Tools in the Suite</h2><p class="section-desc">Beyond the published nomograms, I develop and deploy a growing ecosystem of clinical AI tools across specialties.</p></div>
+  <div class="tools-grid">
+    <a href="https://panacea.shinyapps.io/DialysisAIv2/" target="_blank" class="tool-card reveal"><div class="tool-card-icon">🩸</div><div class="tool-card-name">DialysisAI™</div><div class="tool-card-desc">Intelligent testing frequency optimisation for maintenance haemodialysis patients</div><span class="tool-link" style="display:inline-flex;margin:0 auto">View Tool →</span></a>
+    <a href="https://panacea.shinyapps.io/Thyroid/" target="_blank" class="tool-card reveal reveal-delay-1"><div class="tool-card-icon">🦋</div><div class="tool-card-name">ThyroidPro AI</div><div class="tool-card-desc">Comprehensive thyroid cancer prognostic decision support platform</div><span class="tool-link" style="display:inline-flex;margin:0 auto">View Tool →</span></a>
+    <a href="https://mohs.panacea-i.com/" target="_blank" class="tool-card reveal reveal-delay-2"><div class="tool-card-icon">🔪</div><div class="tool-card-name">MOHS Surgery AI</div><div class="tool-card-desc">Surgical planning, case-matching, and risk assessment for Mohs micrographic surgery</div><span class="tool-link" style="display:inline-flex;margin:0 auto">View Tool →</span></a>
+  </div>
+</div></section>
+
+<section id="grants"><div class="container">
+  <div class="section-header reveal"><div class="section-label">Funding</div><h2 class="section-title">Major Grants</h2></div>
+  <div class="grant-card reveal"><div class="grant-amount"><span class="currency">$</span>945K</div><div class="grant-details"><div class="grant-name">PanaceAI: Integrated AI Platform for Precision Oncology Decision Support</div><div class="grant-funder">AEA Ignite Research &amp; Commercialisation Grant · 2026</div><div class="grant-desc">Advancing PanaceAI from validated research models to an integrated, clinically deployable platform — Australia's first explainable multi-cancer AI risk platform. TGA Class IIa regulatory pathway with international expansion to Southeast Asia.</div></div></div>
+  <div class="grant-card reveal"><div class="grant-amount"><span class="currency">$</span>2.25M</div><div class="grant-details"><div class="grant-name">REP-AI: Research Ethics Plus AI</div><div class="grant-funder">NHMRC Partnership Grant · 2025 · Chief Investigator</div><div class="grant-desc">The only NHMRC-funded project in Australia focused on AI ethics and governance in health research. Building national frameworks for how health AI should be ethically assessed and governed.</div></div></div>
+  <div class="grant-card reveal"><div class="grant-amount"><span class="currency">$</span>709K</div><div class="grant-details"><div class="grant-name">Eosgene: Non-viral CRISPR Gene Therapy</div><div class="grant-funder">Australian Economic Accelerator Grant · 2025</div><div class="grant-desc">Commercialising patented light-activated nanoparticle technology for CRISPR gene delivery. International patent portfolio granted in US, AU, EU, UK, and Canada.</div></div></div>
+</div></section>
+
+<section id="publications" style="background:var(--bg-secondary)"><div class="container">
+  <div class="section-header reveal"><div class="section-label">Scholarship</div><h2 class="section-title">Publications</h2><p class="section-desc">20+ peer-reviewed papers · 80% first author · h-index 11</p></div>
+  <ul class="pub-list">
+    <li class="pub-item reveal"><span class="pub-year">2025</span><span class="pub-text"><strong>Aksoy YA</strong> &amp; Ozturk GO. Recurrent Facial Paralysis and Orofacial Edema in Melkersson-Rosenthal Syndrome. <em>BMJ Case Reports</em> (Accepted)<span class="pub-type">Case Report</span></span><span class="pub-if"></span></li>
+    <li class="pub-item reveal"><span class="pub-year">2025</span><span class="pub-text">Ozturk GO &amp; <strong>Aksoy YA</strong>. When skin tells the story: telangiectasias unveiling progressive neurodegeneration in ataxia telangiectasia. <em>BMJ Case Reports</em> (Accepted)<span class="pub-type">Case Report</span></span><span class="pub-if"></span></li>
+    <li class="pub-item reveal"><span class="pub-year">2025</span><span class="pub-text"><strong>Zammit AP* &amp; Aksoy YA*</strong>, Brown I, Hooper JD, Clark DA, Fuchs TL, Riddell AD, Gill AJ. Development of a novel malignant colorectal polyp prognostic nomogram. <em>ANZ Journal of Surgery</em> (*co-first)</span><span class="pub-if">IF 1.5</span></li>
+    <li class="pub-item reveal"><span class="pub-year">2024</span><span class="pub-text">Yang X, Bui TA, Mei H, <strong>Aksoy YA</strong>, Deng F, Hutvagner G, Deng W. Exploring the Potential and Challenges of CRISPR Delivery and Therapeutics for Genetic Disease Treatment. <em>Advanced Functional Materials</em> 34(38):2402630</span><span class="pub-if">IF 19.9</span></li>
+    <li class="pub-item reveal"><span class="pub-year">2024</span><span class="pub-text"><strong>Aksoy YA</strong>. A psychiatrist's role in advocacy? <em>Australasian Psychiatry</em> 32(3):275-277</span><span class="pub-if"></span></li>
+    <li class="pub-item reveal"><span class="pub-year">2024</span><span class="pub-text"><strong>Aksoy YA</strong>, Cole AJ, Deng W, Hesselson D. Zebrafish CCNF and FUS Mediate Stress-Specific Motor Responses. <em>Cells</em> 13(5):372</span><span class="pub-if">IF 6.10</span></li>
+    <li class="pub-item reveal"><span class="pub-year">2024</span><span class="pub-text"><strong>Aksoy YA</strong>, Xu B, Viswanathan K, Ahadi MS, Al Ghuzlan A, Alzumaili B, <em>et al.</em> Novel prognostic nomogram for predicting recurrence-free survival in medullary thyroid carcinoma. <em>Histopathology</em> 84(6):947-959</span><span class="pub-if">IF 6.62</span></li>
+    <li class="pub-item reveal"><span class="pub-year">2023</span><span class="pub-text"><strong>Aksoy YA</strong>, Chou A, Mahjoub M, <em>et al.</em> Role of pathologists in nomogram development: reply. <em>Pathology</em> 55(7):1049<span class="pub-type">Letter</span></span><span class="pub-if">IF 4.2</span></li>
+    <li class="pub-item reveal"><span class="pub-year">2023</span><span class="pub-text">Mehta M, Bui TA, Yang X, <strong>Aksoy YA</strong>, Goldys EM, Deng W. Lipid-Based Nanoparticles for Drug/Gene Delivery: An Overview of the Production Techniques and Difficulties Encountered in Their Industrial Development. <em>ACS Materials Au</em></span><span class="pub-if">IF 6.8</span></li>
+    <li class="pub-item reveal"><span class="pub-year">2023</span><span class="pub-text"><strong>Aksoy YA</strong>, Chou A, Mahjoub M, Sheen A, Sioson L, Ahadi MS, Gill AJ, Fuchs TL. A novel prognostic nomogram for predicting survival in diffuse pleural mesothelioma. <em>Pathology</em> 55(4):449-455</span><span class="pub-if">IF 4.2</span></li>
+    <li class="pub-item reveal"><span class="pub-year">2022</span><span class="pub-text">Fuchs TL, Chou A, <strong>Aksoy YA</strong>, Mahjoub M, Sheen A, Sioson L, Ahadi M, Gill AJ. A critical assessment of current grading schemes for diffuse pleural mesothelioma with a proposal for a novel mesothelioma weighted grading scheme (MWGS). <em>The American Journal of Surgical Pathology</em> 46(6):774-785</span><span class="pub-if">IF 5.6</span></li>
+    <li class="pub-item reveal"><span class="pub-year">2021</span><span class="pub-text"><strong>Aksoy YA</strong>, Denes CE, Cole AJ, Li G, Neely GG, Hesselson D. Approaches to enhance precise CRISPR/Cas9-mediated genome editing. <em>International Journal of Molecular Sciences</em> 22(16):8571</span><span class="pub-if">IF 5.7</span></li>
+    <li class="pub-item reveal"><span class="pub-year">2020</span><span class="pub-text"><strong>Aksoy YA</strong>, Yang B, Chen W, Hung T, Kuchel RP, Zammit NW, Grey ST, Goldys EM, Deng W. Spatial and Temporal Control of CRISPR-Cas9-Mediated Gene Editing Delivered via a Light-Triggered Liposome System. <em>ACS Applied Materials &amp; Interfaces</em> 12(47):52433-52444</span><span class="pub-if">IF 9.46</span></li>
+    <li class="pub-item reveal"><span class="pub-year">2020</span><span class="pub-text"><strong>Aksoy YA</strong>, Deng W, Stoddart J, Chung R, Guillemin G, Cole NJ, Neely GG, Hesselson D. "STRESSED OUT": The role of FUS and TDP-43 in amyotrophic lateral sclerosis. <em>The International Journal of Biochemistry &amp; Cell Biology</em> 126:105821</span><span class="pub-if">IF 3.98</span></li>
+    <li class="pub-item reveal"><span class="pub-year">2019</span><span class="pub-text"><strong>Aksoy YA</strong>, Nguyen DT, Chow S, Chung RS, Guillemin GJ, Cole NJ, Hesselson D. Chemical reprogramming enhances homology-directed genome editing in zebrafish embryos. <em>Communications Biology</em> 2(1):1-9</span><span class="pub-if">IF 5.98</span></li>
+    <li class="pub-item reveal"><span class="pub-year">2013</span><span class="pub-text">Brown C, <strong>Aksoy Y</strong>, Varinli H, Gillings M. Identification of the rainbowfish in Lake Eacham using DNA sequencing. <em>Australian Journal of Zoology</em> 60(5):334-339</span><span class="pub-if">IF 1.07</span></li>
+    <li class="pub-item reveal"><span class="pub-year">2011</span><span class="pub-text">Neely GG, Keene AC, Duchek P, Chang EC, Wang QP, <strong>Aksoy YA</strong>, Rosenzweig M, Costigan M, Woolf CJ, Garrity PA, Penninger JM. TrpA1 regulates thermal nociception in <em>Drosophila</em>. <em>PLoS One</em> 6(8):e24343</span><span class="pub-if">IF 2.9</span></li>
+  </ul>
+  <p style="margin-top:24px;font-size:13px;color:var(--text-muted)">Patent: Aksoy YA, Deng W &amp; Goldys E. (2020). <em>Non-viral CRISPR Gene Therapy using light-activated nanoparticles.</em> International (PCT) Patent — Granted in US, AU, CA, EU &amp; UK.</p>
+</div></section>
+
+<section><div class="container">
+  <div class="section-header reveal"><div class="section-label">In the News</div><h2 class="section-title">Media &amp; Recognition</h2></div>
+  <a href="https://www.nslhd.health.nsw.gov.au/News/Pages/RNSH-doctor-heads-AI-ethics-study.aspx" target="_blank" class="news-card reveal"><div class="news-icon">📰</div><div class="news-content"><div class="news-tag">Northern Sydney LHD</div><div class="news-title">Royal North Shore doctor leads national ethics project on health AI</div><div class="news-excerpt">A $2.25 million NHMRC-funded project — Research Ethics Plus AI (REP-AI) — is underway to ensure artificial intelligence in healthcare is used safely, ethically and in line with public expectations.</div><span class="tool-link">Read Article →</span></div></a>
+  <a href="https://intranet.sydney.edu.au/medicine-and-health/news-events/news/2026/february/fmh-researcher-secures-funding-to-commercialise-clinical-ai-with.html" target="_blank" class="news-card reveal"><div class="news-icon">🎓</div><div class="news-content"><div class="news-tag">University of Sydney</div><div class="news-title">FMH researcher secures funding to commercialise clinical AI</div><div class="news-excerpt">Dr Yagiz Aksoy receives AEA Ignite grant to advance PanaceAI — an integrated AI platform for precision oncology decision support — from research prototype to clinical deployment.</div><span class="tool-link">Read Article →</span></div></a>
+  <a href="https://www.centenary.org.au/discover-how-ai-is-transforming-your-health/" target="_blank" class="news-card reveal"><div class="news-icon">🔬</div><div class="news-content"><div class="news-tag">Centenary Institute</div><div class="news-title">Discover how AI is transforming your health</div><div class="news-excerpt">Public seminar featuring Dr Yagiz Aksoy on the role of artificial intelligence in clinical diagnostics, prognostics, and personalised medicine.</div><span class="tool-link">Read Article →</span></div></a>
+</div></section>
+
+<section class="contact-section" id="contact" style="background:var(--bg-secondary)"><div class="container">
+  <div class="section-label reveal" style="text-align:center">Collaborations</div>
+  <h2 class="section-title reveal" style="text-align:center">Open to Research Partnerships</h2>
+  <p class="section-desc reveal" style="text-align:center;margin:0 auto 16px;max-width:560px">I work with clinicians and researchers who have rich datasets and want to produce high-impact publications with validated, deployed clinical tools. If you have data that could benefit from advanced analytics and AI modelling, I'd welcome a conversation.</p>
+  <div class="contact-grid reveal">
+    <a href="/cdn-cgi/l/email-protection#5920383e30237738322a36207f7a6f6d622a203d373c20773c3d2c77382c" class="contact-item"><span class="contact-icon">✉️</span> yagiz.aksoy&#64;sydney.edu.au</a>
+    <a href="/cdn-cgi/l/email-protection#98e1f9fff1e2b6f9f3ebf7e1bebbaeaca3e8f9f6f9fbfdf9f1b6fbf7f5b6f9ed" class="contact-item"><span class="contact-icon">🚀</span> yagiz.aksoy&#64;panaceai.com.au</a>
+    <a href="https://linkedin.com/in/yagizalpaksoy" target="_blank" class="contact-item"><span class="contact-icon">💼</span> LinkedIn</a>
+    <a href="https://orcid.org/0000-0003-3301-8648" target="_blank" class="contact-item"><span class="contact-icon">🔗</span> ORCID: 0000-0003-3301-8648</a>
+  </div>
+</div></section>
+
+<footer><div class="container"><p>© 2026 Dr Yagiz Alp Aksoy · BSc MD PhD JP</p><div class="footer-links">
+  <a href="https://panacea.shinyapps.io/Mesothelioma/" target="_blank">Mesothelioma AI</a>
+  <a href="https://panacea.shinyapps.io/MTCx/" target="_blank">MTC AI</a>
+  <a href="https://malignantpolyp.com/" target="_blank">PolypRisk AI</a>
+  <a href="https://panacea.shinyapps.io/DialysisAIv2/" target="_blank">DialysisAI</a>
+  <a href="https://panacea.shinyapps.io/Thyroid/" target="_blank">ThyroidPro AI</a>
+  <a href="https://mohs.panacea-i.com/" target="_blank">MOHS AI</a>
+</div></div></footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+// Enable scroll animations only if JS is running
+document.body.classList.add('js-loaded');
+
+// Scroll reveal
+const obs = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry) {
+    if (entry.isIntersecting) { entry.target.classList.add('visible'); }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal').forEach(function(el) { obs.observe(el); });
+
+// Nav scroll
+var navEl = document.getElementById('nav');
+window.addEventListener('scroll', function() {
+  if (window.scrollY > 60) { navEl.classList.add('scrolled'); }
+  else { navEl.classList.remove('scrolled'); }
+});
+
+// Counter animation
+var cObs = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry) {
+    if (entry.isIntersecting) {
+      var el = entry.target;
+      var target = parseInt(el.getAttribute('data-target'));
+      var prefix = el.getAttribute('data-prefix') || '';
+      var suffix = el.getAttribute('data-suffix') || '';
+      var current = 0;
+      el.textContent = prefix + '0' + suffix;
+      var increment = Math.max(1, Math.floor(target / 40));
+      var timer = setInterval(function() {
+        current += increment;
+        if (current >= target) { current = target; clearInterval(timer); }
+        el.textContent = prefix + current.toLocaleString() + suffix;
+      }, 30);
+      cObs.unobserve(el);
+    }
+  });
+}, { threshold: 0.5 });
+document.querySelectorAll('.stat-number').forEach(function(el) { cObs.observe(el); });
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEac
